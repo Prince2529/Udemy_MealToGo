@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export default function pageOneScene(props) {
+export default function PageOneScene(props) {
     return (
-        <View style={{backgroundColor:"pink",flex:1}}>
+        <View style={{backgroundColor:"pink",height:1000,justifyContent:"center"}}>
             <Text>Page......{props.number}</Text>
         </View>
     )

@@ -32,10 +32,10 @@ import PageOneScene from './screen/pageOneScene'
 function ProfileScreen() {
   useFocusEffect(
     React.useCallback(() => {
-      alert('Screen was focused');
+      console.log('Screen was focused');
       // Do something when the screen is focused
       return () => {
-        alert('Screen was unfocused');
+        console.log('Screen was unfocused');
         // Do something when the screen is unfocused
         // Useful for cleanup functions
       };
@@ -50,17 +50,23 @@ function HomeScreen() {
   
   useFocusEffect( 
     React.useCallback(()=>{
-      setNumber(number++)
+
+      let i = 1
+      setNumber(number+11)
+      console.log("in",i++)
+      setNumber(number+11)
       return()=>{
-        console.log("number",number)
-      }
+        setNumber(number+1)
+        console.log("out",number)
+      };
     },[])
   )
+
   
   return (
     <View>
-      <View style={{backgroundColor:"green"}}>
-        <Text>Home.....Screen</Text>
+      <View style={{backgroundColor:"green",flexWrap:"wrap",justifyContent:"center",alignItems:"center"}}>
+        <View style={{height:400,justifyContent:"center",alignItems:"center"}}><Text>Home.....Screen</Text></View>
         <PageOneScene number={number} />
       </View>
     </View>
